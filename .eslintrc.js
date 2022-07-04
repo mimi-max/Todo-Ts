@@ -28,5 +28,8 @@ module.exports = {
     'react/jsx-filename-extension': 'off',
     'react/react-in-jsx-scope': 'off',
     'import/extensions': 'off',
+    'import/prefer-default-export': 'off',
+    'no-unused-vars ': 'off',
+    '@typescript-eslint/no-unused-vars': ['error'],
   },
 };
