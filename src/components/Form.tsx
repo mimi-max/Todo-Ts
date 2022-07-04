@@ -1,13 +1,18 @@
-import React, { useState } from 'react';
-import { v4 as uuidv4 } from 'uuid';
-
+import React from 'react';
+import { useTodoValue } from '../hooks/usetodovalue';
 
 function Form() {
-  const [todo, setTodo] = useState('');
+  const { todoValue, changeTodoValue } = useTodoValue();
 
   return (
-    <form action="" >
-      <input type="text" name="" id="" />
+    <form action="">
+      <input
+        type="text"
+        value={todoValue}
+        onChange={(e) => {
+          changeTodoValue(e.target.value);
+        }}
+      />
       <input type="submit" />
     </form>
   );
