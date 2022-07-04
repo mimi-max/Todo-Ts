@@ -13,7 +13,6 @@ function Form() {
         onSubmit={(e) => {
           e.preventDefault();
           addTodoValue(todoValue);
-          console.log(todos);
         }}
       >
         <input
