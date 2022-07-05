@@ -6,6 +6,9 @@ interface ListTodoProps{
 }
 export function ListTodo({ todo }:ListTodoProps) {
   return (
-    <li>{todo.value}</li>
+    <li>
+      {todo.value}
+      <button type="button">yes</button>
+    </li>
   );
 }
