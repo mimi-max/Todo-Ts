@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 
 export interface Todo {
@@ -7,9 +7,10 @@ export interface Todo {
 }
 interface UseTodos {
   todos: Todo[],
-  errorMessage:string,
+  errorMessage: string,
   addTodoValue: (todoValue: string) => void;
   setErrorMessage: (errorMessage: string) => void;
+  updateTodoValue: (id: string, value:string) => void;
 }
 
 export function useTodos(): UseTodos {
@@ -26,7 +27,14 @@ export function useTodos(): UseTodos {
       setErrorMessage('Please enter your Todo in input');
     }
   }
+
+  function updateTodoValue(value:string, id:string): void {
+    const indexValueUpdate = todos.findIndex((todo) => todo.key === id);
+    const spreadTodos = [...todos];
+    spreadTodos[indexValueUpdate].value = value;
+    setTodos(spreadTodos);
+  }
   return {
-    todos, addTodoValue, errorMessage, setErrorMessage,
+    todos, addTodoValue, errorMessage, setErrorMessage, updateTodoValue,
   };
 }
