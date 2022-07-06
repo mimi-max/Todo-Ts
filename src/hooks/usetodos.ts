@@ -34,6 +34,7 @@ export function useTodos(): UseTodos {
     spreadTodos[indexValueUpdate].value = value;
     setTodos(spreadTodos);
   }
+
   return {
     todos, addTodoValue, errorMessage, setErrorMessage, updateTodoValue,
   };

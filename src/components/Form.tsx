@@ -1,7 +1,7 @@
 import React from 'react';
 import { useTodoValue } from '../hooks/usetodovalue';
 import { useTodos } from '../hooks/usetodos';
-import { ListTodo } from './ListTodo';
+import { TodoItem } from './TodoItem';
 
 function Form() {
   const { todoValue, changeTodoValue } = useTodoValue();
@@ -34,17 +34,17 @@ function Form() {
         />
         <input type="submit" />
       </form>
-      <ul>
+      <div>
         {
           todos.map((todo) => (
-            <ListTodo
+            <TodoItem
               key={todo.key}
               todo={todo}
-              editValue={updateTodoValue}
+              updateTodoValue={updateTodoValue}
             />
           ))
         }
-      </ul>
+      </div>
     </>
   );
 }
