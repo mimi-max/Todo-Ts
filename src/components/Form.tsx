@@ -6,15 +6,15 @@ import { ListTodo } from './ListTodo';
 function Form() {
   const { todoValue, changeTodoValue } = useTodoValue();
   const {
-    errorMessage, setErrorMessage, todos, addTodoValue,
+    errorMessage, setErrorMessage, todos, addTodoValue, updateTodoValue,
   } = useTodos();
 
   return (
     <>
-      { errorMessage && (
-      <div className="alert alert-danger" role="alert">
-        {errorMessage}
-      </div>
+      {errorMessage && (
+        <div className="alert alert-danger" role="alert">
+          {errorMessage}
+        </div>
       )}
       <form
         action=""
@@ -36,7 +36,13 @@ function Form() {
       </form>
       <ul>
         {
-          todos.map((todo) => <ListTodo key={todo.key} todo={todo} />)
+          todos.map((todo) => (
+            <ListTodo
+              key={todo.key}
+              todo={todo}
+              editValue={updateTodoValue}
+            />
+          ))
         }
       </ul>
     </>
