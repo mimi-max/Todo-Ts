@@ -1,0 +1,56 @@
+.todoItemContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 24px;
+  gap: 6px;
+
+}
+
+.todoItem {
+  width: 500px;
+  border: 2px solid #0d6efd;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+}
+
+.updateItemButton {
+  height: 40px;
+  background-color: #15803d;
+  color: #fff;
+  border: none;
+  display: flex;
+  align-items: center;
+}
+
+.deleteItemButton {
+  height: 40px;
+  background-color: #be123c;
+  color: #fff;
+  border: none;
+  display: flex;
+  align-items: center;
+}
+
+.newTodoItem {
+  width: 500px;
+  border: 2px solid #22c55e;
+  height: 40px;
+  text-align: center;
+}
+
+.newFormTodoItem {
+  display: flex;
+  gap: 6px;
+}
+.buttonSubmitUpdate{
+  height: 40px;
+  background-color: #16a34a;
+  color: #fff;
+  border: none;
+  display: flex;
+  align-items: center;
+}

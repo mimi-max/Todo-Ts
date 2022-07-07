@@ -1,0 +1,30 @@
+.form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 12px;
+  gap: 6px;
+}
+
+.inputTodo {
+  width: 300px;
+  height: 40px;
+  border-color: #2563eb;
+  outline: none;
+}
+
+.inputTodoSubmit {
+  height: 40px;
+  background-color: #2563eb;
+  color: #fff;
+  border: none;
+}
+
+.Todos {
+  max-width: 800px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto ;
+  flex-direction: column;
+}
