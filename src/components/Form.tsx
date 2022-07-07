@@ -6,7 +6,7 @@ import { TodoItem } from './TodoItem';
 function Form() {
   const { todoValue, changeTodoValue } = useTodoValue();
   const {
-    errorMessage, setErrorMessage, todos, addTodoValue, updateTodoValue,
+    errorMessage, setErrorMessage, todos, addTodoValue, updateTodoValue, deleteTodoItem,
   } = useTodos();
 
   return (
@@ -41,6 +41,7 @@ function Form() {
               key={todo.key}
               todo={todo}
               updateTodoValue={updateTodoValue}
+              deleteTodoItem={deleteTodoItem}
             />
           ))
         }

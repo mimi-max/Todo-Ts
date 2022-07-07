@@ -4,8 +4,9 @@ import { Todo } from '../hooks/usetodos';
 interface TodoItemProps{
   todo:Todo;
   updateTodoValue: (value:string, id: string) => void;
+  deleteTodoItem: (id: string) => void
 }
-export function TodoItem({ todo, updateTodoValue }:TodoItemProps) {
+export function TodoItem({ todo, updateTodoValue, deleteTodoItem }:TodoItemProps) {
   const [isEdit, setIsEdit] = useState<boolean>(false);
   const [updateValue, setUpdateValue] = useState<string>(todo.value);
   function toggleEditMode() {
@@ -14,7 +15,6 @@ export function TodoItem({ todo, updateTodoValue }:TodoItemProps) {
   return (
     <div>
       {!isEdit && todo.value}
-      {/* {todo.value} */}
       {isEdit && (
         <form
           onSubmit={(e:React.FormEvent<HTMLFormElement>) => {
@@ -27,7 +27,6 @@ export function TodoItem({ todo, updateTodoValue }:TodoItemProps) {
             value={updateValue}
             type="text"
             onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-              // editValue(e.target.value, todo.key);
               setUpdateValue(e.target.value);
             }}
           />
@@ -45,7 +44,14 @@ export function TodoItem({ todo, updateTodoValue }:TodoItemProps) {
         Update
       </button>
       )}
-
+      <button
+        type="button"
+        onClick={() => {
+          deleteTodoItem(todo.key);
+        }}
+      >
+        delete
+      </button>
     </div>
   );
 }

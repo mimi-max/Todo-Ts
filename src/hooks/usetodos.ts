@@ -11,6 +11,8 @@ interface UseTodos {
   addTodoValue: (todoValue: string) => void;
   setErrorMessage: (errorMessage: string) => void;
   updateTodoValue: (id: string, value:string) => void;
+  deleteTodoItem:(id: string)=>void;
+
 }
 
 export function useTodos(): UseTodos {
@@ -35,7 +37,12 @@ export function useTodos(): UseTodos {
     setTodos(spreadTodos);
   }
 
+  function deleteTodoItem(id:string) {
+    const deleteTodo = todos.filter((todo) => todo.key !== id);
+    setTodos(deleteTodo);
+  }
+
   return {
-    todos, addTodoValue, errorMessage, setErrorMessage, updateTodoValue,
+    todos, addTodoValue, errorMessage, setErrorMessage, updateTodoValue, deleteTodoItem,
   };
 }
