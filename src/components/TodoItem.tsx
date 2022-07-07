@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Todo } from '../hooks/usetodos';
+import styles from './TodoItem.module.css';
 
 interface TodoItemProps{
   todo:Todo;
@@ -13,10 +14,11 @@ export function TodoItem({ todo, updateTodoValue, deleteTodoItem }:TodoItemProps
     setIsEdit(!isEdit);
   }
   return (
-    <div>
-      {!isEdit && todo.value}
+    <div className={styles.todoItemContainer}>
+      {!isEdit && <div className={styles.todoItem}>{todo.value}</div>}
       {isEdit && (
         <form
+          className={styles.newFormTodoItem}
           onSubmit={(e:React.FormEvent<HTMLFormElement>) => {
             e.preventDefault();
             updateTodoValue(updateValue, todo.key);
@@ -24,18 +26,20 @@ export function TodoItem({ todo, updateTodoValue, deleteTodoItem }:TodoItemProps
           }}
         >
           <input
+            className={styles.newTodoItem}
             value={updateValue}
             type="text"
             onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
               setUpdateValue(e.target.value);
             }}
           />
-          <button type="submit">Submit</button>
+          <button type="submit" className={styles.buttonSubmitUpdate}>Submit</button>
         </form>
 
       )}
       {!isEdit && (
       <button
+        className={styles.updateItemButton}
         type="button"
         onClick={() => {
           toggleEditMode();
@@ -45,6 +49,7 @@ export function TodoItem({ todo, updateTodoValue, deleteTodoItem }:TodoItemProps
       </button>
       )}
       <button
+        className={styles.deleteItemButton}
         type="button"
         onClick={() => {
           deleteTodoItem(todo.key);
