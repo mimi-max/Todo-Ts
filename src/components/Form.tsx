@@ -38,7 +38,7 @@ function Form() {
         />
         <input type="submit" className={styles.inputTodoSubmit} />
       </form>
-      <div className={styles.Todos}>
+      <div className={styles.todos}>
         {
           todos.map((todo) => (
             <TodoItem
