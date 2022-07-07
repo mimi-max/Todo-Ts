@@ -9,7 +9,7 @@
 
 .todoItem {
   width: 500px;
-  border: 2px solid #0d6efd;
+  border: 2px solid #5408d0;
   height: 40px;
   display: flex;
   justify-content: center;
@@ -39,7 +39,6 @@
   width: 500px;
   border: 2px solid #22c55e;
   height: 40px;
-  text-align: center;
 }
 
 .newFormTodoItem {

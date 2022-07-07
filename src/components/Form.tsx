@@ -2,6 +2,7 @@ import React from 'react';
 import { useTodoValue } from '../hooks/usetodovalue';
 import { useTodos } from '../hooks/usetodos';
 import { TodoItem } from './TodoItem';
+import styles from './Form.module.css';
 
 function Form() {
   const { todoValue, changeTodoValue } = useTodoValue();
@@ -17,6 +18,7 @@ function Form() {
         </div>
       )}
       <form
+        className={styles.form}
         action=""
         onSubmit={(e) => {
           e.preventDefault();
@@ -25,16 +27,18 @@ function Form() {
         }}
       >
         <input
+          className={styles.inputTodo}
           type="text"
           value={todoValue}
+          placeholder="Type your item"
           onChange={(e) => {
             changeTodoValue(e.target.value);
             setErrorMessage('');
           }}
         />
-        <input type="submit" />
+        <input type="submit" className={styles.inputTodoSubmit} />
       </form>
-      <div>
+      <div className={styles.todos}>
         {
           todos.map((todo) => (
             <TodoItem
