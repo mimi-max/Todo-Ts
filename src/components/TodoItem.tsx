@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { MdEdit, MdDelete, MdCheck } from 'react-icons/md';
 import { Todo } from '../hooks/usetodos';
 import styles from './TodoItem.module.css';
 
@@ -33,7 +34,7 @@ export function TodoItem({ todo, updateTodoValue, deleteTodoItem }:TodoItemProps
               setUpdateValue(e.target.value);
             }}
           />
-          <button type="submit" className={styles.buttonSubmitUpdate}>Submit</button>
+          <button type="submit" aria-label="Save" className={styles.buttonSubmitUpdate}><MdCheck /></button>
         </form>
 
       )}
@@ -45,18 +46,24 @@ export function TodoItem({ todo, updateTodoValue, deleteTodoItem }:TodoItemProps
           toggleEditMode();
         }}
       >
-        Update
+        <MdEdit />
       </button>
       )}
-      <button
-        className={styles.deleteItemButton}
-        type="button"
-        onClick={() => {
-          deleteTodoItem(todo.key);
-        }}
-      >
-        delete
-      </button>
+      {
+        !isEdit
+        && (
+        <button
+          className={styles.deleteItemButton}
+          type="button"
+          onClick={() => {
+            deleteTodoItem(todo.key);
+          }}
+        >
+          <MdDelete />
+        </button>
+        )
+      }
+
     </div>
   );
 }

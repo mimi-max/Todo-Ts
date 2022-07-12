@@ -1,4 +1,5 @@
 import React from 'react';
+import { MdAdd } from 'react-icons/md';
 import { useTodoValue } from '../hooks/usetodovalue';
 import { useTodos } from '../hooks/usetodos';
 import { TodoItem } from './TodoItem';
@@ -36,7 +37,16 @@ function Form() {
             setErrorMessage('');
           }}
         />
-        <input type="submit" className={styles.inputTodoSubmit} />
+        {/* <input type="submit" className={styles.inputTodoSubmit} /> */}
+        <button type="submit" className={styles.inputTodoSubmit}>
+          {' '}
+          <MdAdd style={{
+            fontSize: '22px',
+          }}
+          />
+          {' '}
+          Add Todo
+        </button>
       </form>
       <div className={styles.todos}>
         {
